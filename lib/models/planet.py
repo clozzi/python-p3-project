@@ -1,4 +1,4 @@
-
+#lib/models/planet.py
 from models.__init__ import CURSOR, CONN
 
 class Planet:
@@ -9,6 +9,9 @@ class Planet:
         self.id = id
         self.name = name
         self.system = system
+
+    def __repr__(self):
+        return f"Planet {self.id}: {self.name}, {self.system}"
 
     @property
     def name(self):
@@ -61,8 +64,13 @@ class Planet:
         CONN.commit()
 
         self.id = CURSOR.lastrowid
-        Planet.all[self.id] = self
+        type(self).all[self.id] = self
     
+    @classmethod
+    def create(cls, name, system):
+        planet = cls(name, system)
+        planet.save()
+        return planet
     
     def update(self):
         sql = """
@@ -82,25 +90,9 @@ class Planet:
         CURSOR.execute(sql, (self.id,))
         CONN.commit()
 
+        del type(self).all[self.id]
+
         self.id = None
-
-    @classmethod
-    def create(cls, name, system):
-        planet = cls(name, system)
-        planet.save()
-        return planet
-
-    @classmethod
-    def get_all(cls):
-        """Return a list containing a Planet object per row in the table"""
-        sql = """
-            SELECT *
-            FROM planets
-        """
-
-        rows = CURSOR.execute(sql).fetchall()
-
-        return [cls.instance_from_db(row) for row in rows]
 
     @classmethod
     def instance_from_db(cls, row):
@@ -113,6 +105,18 @@ class Planet:
             planet.id = row[0]
             cls.all[planet.id] = planet
         return planet
+    
+    @classmethod
+    def get_all(cls):
+        """Return a list containing a Planet object per row in the table"""
+        sql = """
+            SELECT *
+            FROM planets
+        """
+
+        rows = CURSOR.execute(sql).fetchall()
+
+        return [cls.instance_from_db(row) for row in rows]
     
     @classmethod
     def find_by_id(cls, id):

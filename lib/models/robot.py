@@ -1,4 +1,4 @@
-
+# lib/models/employee.py
 from models.__init__ import CURSOR, CONN
 from models.planet import Planet
 
@@ -7,9 +7,16 @@ class Robot:
     all = {}
 
     def __init__(self, name, terrain, planet_id, id=None):
+        self.id = id
         self.name = name
         self.terrain = terrain
         self.planet_id = planet_id
+
+    def __repr__(self) -> str:
+        return (
+            f"Robot {self.id}: {self.name}, {self.terrain}, " +
+            f"Planet ID: {self.planet_id}"
+        )
 
     @property
     def name(self):
@@ -17,10 +24,10 @@ class Robot:
     
     @name.setter
     def name(self, name):
-        if isinstance(name, str):
+        if isinstance(name, str) and len(name):
             self._name = name
         else:
-            raise Exception("Robot name must be a string.")
+            raise Exception("Robot name must be a non-empty string.")
 
     @property
     def terrain(self):
@@ -28,10 +35,10 @@ class Robot:
     
     @terrain.setter
     def terrain(self, terrain):
-        if isinstance(terrain, str):
+        if isinstance(terrain, str) and len(terrain):
             self._terrain = terrain
         else:
-            raise Exception("Terrain must be a string.")
+            raise Exception("Terrain must be a non-empty string.")
         
     @property
     def planet_id(self):
@@ -105,18 +112,6 @@ class Robot:
         return robot
     
     @classmethod
-    def get_all(cls):
-        """Return a list containing a Robot object per row in the table"""
-        sql = """
-            SELECT *
-            FROM robots
-        """
-
-        rows = CURSOR.execute(sql).fetchall()
-
-        return [cls.instance_from_db(row) for row in rows]
-
-    @classmethod
     def instance_from_db(cls, row):
         robot = cls.all.get(row[0])
         if robot:
@@ -129,6 +124,18 @@ class Robot:
             cls.all[robot.id] = robot
         return robot
     
+    @classmethod
+    def get_all(cls):
+        """Return a list containing a Robot object per row in the table"""
+        sql = """
+            SELECT *
+            FROM robots
+        """
+
+        rows = CURSOR.execute(sql).fetchall()
+
+        return [cls.instance_from_db(row) for row in rows]
+
     @classmethod
     def find_by_id(cls, id):
         sql = """
