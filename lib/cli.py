@@ -3,7 +3,9 @@
 from helpers import (
     exit_program,
     list_planets,
-    list_robots
+    list_robots,
+    find_planet_by_name,
+    find_robot_by_name
 )
 
 def planet_menu():
@@ -72,21 +74,26 @@ def main():
     while True:
         print("")
         print("Please select an option:")
-        print("E: exit the program")
-        print("P: list all Planets")
-        print("R: list all Robots")
-        print("")
+        print("1. Exit the program")
+        print("2. List all Planets")
+        print("3. List all Robots")
+        print("4. Find Planet by name")
+        print("5. Find Robot by name")
 
         print("********************")
         choice = input("Type your selection> ")
         print("********************")
 
-        if choice == "E" or choice == "e":
+        if choice == "1":
             exit_program()
-        elif choice == "P" or choice == "p":
+        elif choice == "2":
             planet_menu()
-        elif choice == "R" or choice == "r":
+        elif choice == "3":
             robot_menu()
+        elif choice == "4":
+            find_planet_by_name()
+        elif choice == "5":
+            find_robot_by_name()
         else:
             print("Invalid choice")
 
