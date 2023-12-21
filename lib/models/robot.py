@@ -100,6 +100,18 @@ class Robot:
         robot = cls(name, terrain, planet_id)
         robot.save()
         return robot
+    
+    @classmethod
+    def get_all(cls):
+        """Return a list containing a Robot object per row in the table"""
+        sql = """
+            SELECT *
+            FROM robots
+        """
+
+        rows = CURSOR.execute(sql).fetchall()
+
+        return [cls.instance_from_db(row) for row in rows]
 
     @classmethod
     def instance_from_db(cls, row):

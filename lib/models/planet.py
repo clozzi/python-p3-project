@@ -59,11 +59,7 @@ class Planet:
 
         self.id = CURSOR.lastrowid
 
-    @classmethod
-    def create(cls, name, system):
-        planet = cls(name, system)
-        planet.save()
-        return planet
+    
     
     def update(self):
         sql = """
@@ -84,6 +80,24 @@ class Planet:
         CONN.commit()
 
         self.id = None
+
+    @classmethod
+    def create(cls, name, system):
+        planet = cls(name, system)
+        planet.save()
+        return planet
+
+    @classmethod
+    def get_all(cls):
+        """Return a list containing a Planet object per row in the table"""
+        sql = """
+            SELECT *
+            FROM planets
+        """
+
+        rows = CURSOR.execute(sql).fetchall()
+
+        return [cls.instance_from_db(row) for row in rows]
 
     @classmethod
     def instance_from_db(cls, row):
