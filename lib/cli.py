@@ -23,11 +23,42 @@ def planet_menu():
             main()
         elif planet_choice == "E":
             exit_program()
+        elif planet_choice == "1":
+            print("Earth details here")
+        elif planet_choice == "2":
+            print("Mars details here")
         else:
             print("Invalid choice.")
 
 def robot_menu():
-    list_robots()
+    while True:
+        list_robots()
+
+        print("Type robot # to see details")
+        print("Type A to add a robot")
+        print("Type B to go back to the previous menu")
+        print("Type E to exit")
+
+        robot_choice = input("> ")
+
+        if robot_choice == "A":
+            print("Add robot function")
+        elif robot_choice == "B":
+            main()
+        elif robot_choice == "E":
+            exit_program()
+        elif robot_choice == "1":
+            print("Walle details here")
+        elif robot_choice == "2":
+            print("Johnny details here")
+        elif robot_choice == "3":
+            exit_program()
+        elif robot_choice == "4":
+            print("Walle details here")
+        elif robot_choice == "5":
+            print("Johnny details here")
+        else:
+            print("Invalid choice.")
 
 def main():
     while True:
