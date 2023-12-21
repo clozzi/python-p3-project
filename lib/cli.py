@@ -9,13 +9,17 @@ from helpers import (
 def planet_menu():
     while True:
         list_planets()
+        print("")
 
-        print("Type planet # to see details")
+        print("#: type planet # to see details")
         print("A: add a planet")
         print("B: back to the previous menu")
         print("E: exit")
+        print("")
 
+        print("********************")
         planet_choice = input("Type your selection> ")
+        print("********************")
 
         if planet_choice == "A" or planet_choice == "a":
             print("Add planet function")
@@ -33,13 +37,17 @@ def planet_menu():
 def robot_menu():
     while True:
         list_robots()
+        print("")
 
-        print("Type robot # to see details")
+        print("#: type robot # to see details")
         print("A: add a robot")
         print("B: back to the previous menu")
         print("E: exit")
+        print("")
 
+        print("********************")
         robot_choice = input("Type your selection> ")
+        print("********************")
 
         if robot_choice == "A" or robot_choice == "a":
             print("Add robot function")
@@ -62,12 +70,16 @@ def robot_menu():
 
 def main():
     while True:
+        print("")
         print("Please select an option:")
         print("E: exit the program")
         print("P: list all Planets")
         print("R: list all Robots")
+        print("")
 
+        print("********************")
         choice = input("Type your selection> ")
+        print("********************")
 
         if choice == "E" or choice == "e":
             exit_program()
