@@ -7,6 +7,12 @@ def exit_program():
     print("Goodbye!")
     exit()
 
+def earth_details():
+    print(Planet.find_by_name("Earth"))
+
+def mars_details():
+    print(Planet.find_by_name("Mars"))
+
 def list_planets():
     planets = Planet.get_all()
     for planet in planets:
