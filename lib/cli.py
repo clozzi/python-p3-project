@@ -11,17 +11,17 @@ def planet_menu():
         list_planets()
 
         print("Type planet # to see details")
-        print("Type A to add a planet")
-        print("Type B to go back to the previous menu")
-        print("Type E to exit")
+        print("A: add a planet")
+        print("B: back to the previous menu")
+        print("E: exit")
 
-        planet_choice = input("> ")
+        planet_choice = input("Type your selection> ")
 
-        if planet_choice == "A":
+        if planet_choice == "A" or planet_choice == "a":
             print("Add planet function")
-        elif planet_choice == "B":
+        elif planet_choice == "B" or planet_choice == "b":
             main()
-        elif planet_choice == "E":
+        elif planet_choice == "E" or planet_choice == "e":
             exit_program()
         elif planet_choice == "1":
             print("Earth details here")
@@ -35,17 +35,17 @@ def robot_menu():
         list_robots()
 
         print("Type robot # to see details")
-        print("Type A to add a robot")
-        print("Type B to go back to the previous menu")
-        print("Type E to exit")
+        print("A: add a robot")
+        print("B: back to the previous menu")
+        print("E: exit")
 
-        robot_choice = input("> ")
+        robot_choice = input("Type your selection> ")
 
-        if robot_choice == "A":
+        if robot_choice == "A" or robot_choice == "a":
             print("Add robot function")
-        elif robot_choice == "B":
+        elif robot_choice == "B" or robot_choice == "b":
             main()
-        elif robot_choice == "E":
+        elif robot_choice == "E" or robot_choice == "e":
             exit_program()
         elif robot_choice == "1":
             print("Walle details here")
@@ -63,17 +63,17 @@ def robot_menu():
 def main():
     while True:
         print("Please select an option:")
-        print("E to Exit the program")
-        print("1. Explore all Planets")
-        print("2. Explore all Robots")
+        print("E: exit the program")
+        print("P: list all Planets")
+        print("R: list all Robots")
 
-        choice = input("> ")
+        choice = input("Type your selection> ")
 
-        if choice == "E":
+        if choice == "E" or choice == "e":
             exit_program()
-        elif choice == "1":
+        elif choice == "P" or choice == "p":
             planet_menu()
-        elif choice == "2":
+        elif choice == "R" or choice == "r":
             robot_menu()
         else:
             print("Invalid choice")
