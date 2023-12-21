@@ -61,7 +61,7 @@ def planet_menu():
         elif planet_choice == "1":
             earth_menu()
         elif planet_choice == "2":
-            print("Mars details here")
+            mars_menu()
         else:
             print("Invalid choice.")
 
