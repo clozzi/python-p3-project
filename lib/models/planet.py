@@ -3,6 +3,8 @@ from models.__init__ import CURSOR, CONN
 
 class Planet:
 
+    all = {}
+
     def __init__(self, name, system, id=None):
         self.id = id
         self.name = name
@@ -35,7 +37,8 @@ class Planet:
         sql = """
             CREATE TABLE IF NOT EXISTS planets (
             id INTEGER PRIMARY KEY,
-            name TEXT
+            name TEXT,
+            system TEXT
             )
         """
         CURSOR.execute(sql)
@@ -54,11 +57,11 @@ class Planet:
             INSERT INTO planets (name, system)
             VALUES (?, ?)
         """
-        CURSOR.execute(sql)
+        CURSOR.execute(sql, (self.name, self.system))
         CONN.commit()
 
         self.id = CURSOR.lastrowid
-
+        Planet.all[self.id] = self
     
     
     def update(self):

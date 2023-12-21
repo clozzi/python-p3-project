@@ -4,6 +4,8 @@ from models.planet import Planet
 
 class Robot:
 
+    all = {}
+
     def __init__(self, name, terrain, planet_id, id=None):
         self.name = name
         self.terrain = terrain
@@ -73,6 +75,7 @@ class Robot:
         CONN.commit()
 
         self.id = CURSOR.lastrowid
+        Robot.all[self.id] = self
 
     def update(self):
         sql = """
