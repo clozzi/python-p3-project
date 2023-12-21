@@ -82,3 +82,19 @@ def update_robot():
             print(f"Error updating robot: ", exc)
     else:
         print(f"Robot {id_} not found")
+
+def delete_planet():
+    id_ = input("Enter the planet's id: ")
+    if planet := Planet.find_by_id(id_):
+        planet.delete()
+        print(f"Planet {id_} deleted")
+    else:
+        print(f"Planet {id_} not found")
+
+def delete_robot():
+    id_ = input("Enter the robot's id: ")
+    if robot := Robot.find_by_id(id_):
+        robot.delete()
+        print(f"Robot {id_} deleted")
+    else:
+        print(f"Robot {id_} not found")
