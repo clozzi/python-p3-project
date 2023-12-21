@@ -2,7 +2,8 @@
 
 from helpers import (
     exit_program,
-    helper_1
+    list_planets,
+    list_robots
 )
 
 
@@ -10,18 +11,21 @@ def main():
     while True:
         menu()
         choice = input("> ")
-        if choice == "0":
+        if choice == "E":
             exit_program()
         elif choice == "1":
-            helper_1()
+            list_planets()
+        elif choice == "2":
+            list_robots()
         else:
             print("Invalid choice")
 
 
 def menu():
     print("Please select an option:")
-    print("0. Exit the program")
-    print("1. Some useful function")
+    print("E to Exit the program")
+    print("1. Explore all Planets")
+    print("2. Explore all Robots")
 
 
 if __name__ == "__main__":
