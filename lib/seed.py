@@ -10,10 +10,11 @@ def seed_db():
     Robot.create_table()
 
     earth = Planet.create("Earth", "solar")
-    walle = Robot.create("Walle", "terrestrial", earth.id)
-    Robot.create("Johnny", "terrestrial")
-    Robot.create("Skynet", "aerial")
-    Robot.create("Ingenuity", "aerial")
+    mars = Planet.create("Mars", "solar")
+    Robot.create("Walle", "terrestrial", earth.id)
+    Robot.create("Johnny", "terrestrial", earth.id)
+    Robot.create("Skynet", "aerial", earth.id)
+    Robot.create("Ingenuity", "aerial", mars.id)
 
 seed_db()
 print("DB seeded")

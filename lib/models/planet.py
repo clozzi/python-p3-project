@@ -19,7 +19,7 @@ class Planet:
     
     @name.setter
     def name(self, name):
-        if isinstance(name, str) and not hasattr(self, "name"):
+        if isinstance(name, str):
             self._name = name
         else:
             raise Exception("Planet name cannot be changed.")
