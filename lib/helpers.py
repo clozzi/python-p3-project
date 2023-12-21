@@ -31,6 +31,20 @@ def find_robot_by_name():
         f"Robot {name} not found"
     )
 
+def find_planet_by_id():
+    id_ = input("Enter the planet's id: ")
+    planet = Planet.find_by_id(id_)
+    print(planet) if planet else print(
+        f"Planet {id_} not found"
+    )
+
+def find_robot_by_id():
+    id_ = input("Enter the robot's id: ")
+    robot = Robot.find_by_id(id_)
+    print(robot) if robot else print(
+        f"Robot {id_} not found"
+    )
+
 def create_planet():
     name = input("Enter the planet's name: ")
     system = input("Enter the planet's system: ")
