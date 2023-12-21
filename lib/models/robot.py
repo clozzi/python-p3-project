@@ -82,7 +82,7 @@ class Robot:
         CONN.commit()
 
         self.id = CURSOR.lastrowid
-        Robot.all[self.id] = self
+        type(self).all[self.id] = self
 
     def update(self):
         sql = """
@@ -103,6 +103,8 @@ class Robot:
         CURSOR.execute(sql, (self.id,))
         CONN.commit()
 
+        del type(self).all[self.id]
+        
         self.id = None
 
     @classmethod
