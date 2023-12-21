@@ -7,7 +7,11 @@ from helpers import (
     find_planet_by_name,
     find_robot_by_name,
     earth_details,
-    mars_details
+    mars_details,
+    create_planet,
+    create_robot,
+    delete_planet,
+    delete_robot
 )
 
 def main():
@@ -44,8 +48,9 @@ def planet_menu():
 
         print("#: type planet # to see details")
         print("A: add a planet")
+        print("D: delete a planet")
         print("B: back to the previous menu")
-        print("E: exit")
+        print("E: exit the program")
         print("")
 
         print("********************")
@@ -53,7 +58,9 @@ def planet_menu():
         print("********************")
 
         if planet_choice == "A" or planet_choice == "a":
-            print("Add planet function")
+            create_planet()
+        elif planet_choice == "D" or planet_choice == "d":
+            delete_planet()
         elif planet_choice == "B" or planet_choice == "b":
             main()
         elif planet_choice == "E" or planet_choice == "e":
@@ -72,8 +79,9 @@ def robot_menu():
 
         print("#: type robot # to see details")
         print("A: add a robot")
+        print("D: delete a robot")
         print("B: back to the previous menu")
-        print("E: exit")
+        print("E: exit the program")
         print("")
 
         print("********************")
@@ -81,13 +89,37 @@ def robot_menu():
         print("********************")
 
         if robot_choice == "A" or robot_choice == "a":
-            print("Add robot function")
+            create_robot()
+        elif robot_choice == "D" or robot_choice == "d":
+            delete_robot()
         elif robot_choice == "B" or robot_choice == "b":
             main()
         elif robot_choice == "E" or robot_choice == "e":
             exit_program()
         elif robot_choice == "1":
-            print("Walle details here")
+            while True:
+                print("Walle details here")
+                print("")
+
+                print("U: update robot details")
+                print("D: delete robot")
+                print("B: back to previous menu")
+                print("E: exit the program")
+
+                print("********************")
+                selected_robot = input("Type your selection> ")
+                print("********************")
+
+                if selected_robot == "1":
+                    print("update robot")
+                elif selected_robot == "2":
+                    print("delete robot")
+                elif selected_robot == "3":
+                    robot_menu()
+                elif selected_robot == "4":
+                    exit_program()
+                else:
+                    print("Invalid selection")
         elif robot_choice == "2":
             print("Johnny details here")
         elif robot_choice == "3":
@@ -106,7 +138,7 @@ def earth_menu():
 
         print("U: update this planet")
         print("B: back to previous menu")
-        print("E: exit")
+        print("E: exit the program")
         print("")
 
         print("********************")
@@ -129,7 +161,7 @@ def mars_menu():
 
         print("U: update this planet")
         print("B: back to previous menu")
-        print("E: exit")
+        print("E: exit the program")
         print("")
 
         print("********************")

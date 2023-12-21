@@ -27,28 +27,28 @@ def find_planet_by_name():
     name = input("Enter the planet's name: ")
     planet = Planet.find_by_name(name)
     print(planet) if planet else print(
-        f"Planet {name} not found"
+        f"Planet {name} not found in database"
     )
 
 def find_robot_by_name():
     name = input("Enter the robot's name: ")
     robot = Robot.find_by_name(name)
     print(robot) if robot else print(
-        f"Robot {name} not found"
+        f"Robot {name} not found in database"
     )
 
 def find_planet_by_id():
     id_ = input("Enter the planet's id: ")
     planet = Planet.find_by_id(id_)
     print(planet) if planet else print(
-        f"Planet {id_} not found"
+        f"Planet {id_} not found in database"
     )
 
 def find_robot_by_id():
     id_ = input("Enter the robot's id: ")
     robot = Robot.find_by_id(id_)
     print(robot) if robot else print(
-        f"Robot {id_} not found"
+        f"Robot {id_} not found in database"
     )
 
 def create_planet():
@@ -84,7 +84,7 @@ def update_planet():
         except Exception as exc:
             print("Error updating planet: ", exc)
     else:
-        print(f'Planet {id_} not found')
+        print(f'Planet {id_} not found in database')
 
 def update_robot():
     id_ = input("Enter the robot's id: ")
@@ -101,7 +101,7 @@ def update_robot():
         except Exception as exc:
             print(f"Error updating robot: ", exc)
     else:
-        print(f"Robot {id_} not found")
+        print(f"Robot {id_} not found in database")
 
 def delete_planet():
     id_ = input("Enter the planet's id: ")
@@ -109,7 +109,7 @@ def delete_planet():
         planet.delete()
         print(f"Planet {id_} deleted")
     else:
-        print(f"Planet {id_} not found")
+        print(f"Planet {id_} not found in database")
 
 def delete_robot():
     id_ = input("Enter the robot's id: ")
@@ -117,4 +117,4 @@ def delete_robot():
         robot.delete()
         print(f"Robot {id_} deleted")
     else:
-        print(f"Robot {id_} not found")
+        print(f"Robot {id_} not found in database")
