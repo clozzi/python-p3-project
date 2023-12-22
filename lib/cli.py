@@ -6,8 +6,6 @@ from helpers import (
     list_robots,
     find_planet_by_name,
     find_robot_by_name,
-    find_planet_by_id,
-    find_robot_by_id,
     create_planet,
     create_robot,
     delete_planet,
@@ -61,7 +59,10 @@ def planet_menu():
         planet_choice = input("Type your selection> ")
         print("********************")
 
-        if planet_choice == "A" or planet_choice == "a":
+        if planet_choice.isnumeric():
+            find_planet(planet_choice)
+            spec_planet_menu()
+        elif planet_choice == "A" or planet_choice == "a":
             create_planet()
         elif planet_choice == "D" or planet_choice == "d":
             delete_planet()
@@ -69,9 +70,6 @@ def planet_menu():
             main()
         elif planet_choice == "E" or planet_choice == "e":
             exit_program()
-        elif planet_choice == "1" or planet_choice == "2":
-            find_planet(planet_choice)
-            spec_planet_menu()
         else:
             print("Invalid choice.")
 
@@ -99,7 +97,7 @@ def robot_menu():
             main()
         elif robot_choice == "E" or robot_choice == "e":
             exit_program()
-        elif robot_choice == "1" or robot_choice == "2" or robot_choice == "3" or robot_choice == "4" or robot_choice == "5":
+        elif robot_choice.isnumeric():
             while True:
                 find_robot(robot_choice)
                 print("")
