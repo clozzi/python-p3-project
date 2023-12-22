@@ -6,12 +6,16 @@ from helpers import (
     list_robots,
     find_planet_by_name,
     find_robot_by_name,
-    earth_details,
-    mars_details,
+    find_planet_by_id,
+    find_robot_by_id,
     create_planet,
     create_robot,
     delete_planet,
-    delete_robot
+    delete_robot,
+    update_planet,
+    update_robot,
+    find_robot,
+    find_planet
 )
 
 def main():
@@ -65,10 +69,9 @@ def planet_menu():
             main()
         elif planet_choice == "E" or planet_choice == "e":
             exit_program()
-        elif planet_choice == "1":
-            earth_menu()
-        elif planet_choice == "2":
-            mars_menu()
+        elif planet_choice == "1" or planet_choice == "2":
+            find_planet(planet_choice)
+            spec_planet_menu()
         else:
             print("Invalid choice.")
 
@@ -96,13 +99,12 @@ def robot_menu():
             main()
         elif robot_choice == "E" or robot_choice == "e":
             exit_program()
-        elif robot_choice == "1":
+        elif robot_choice == "1" or robot_choice == "2" or robot_choice == "3" or robot_choice == "4" or robot_choice == "5":
             while True:
-                print("Walle details here")
+                find_robot(robot_choice)
                 print("")
 
                 print("U: update robot details")
-                print("D: delete robot")
                 print("B: back to previous menu")
                 print("E: exit the program")
 
@@ -110,30 +112,19 @@ def robot_menu():
                 selected_robot = input("Type your selection> ")
                 print("********************")
 
-                if selected_robot == "1":
-                    print("update robot")
-                elif selected_robot == "2":
-                    print("delete robot")
-                elif selected_robot == "3":
+                if selected_robot == "U" or selected_robot == "u":
+                    update_robot()
+                elif selected_robot == "B" or selected_robot == "b":
                     robot_menu()
-                elif selected_robot == "4":
+                elif selected_robot == "E" or selected_robot == "e":
                     exit_program()
                 else:
                     print("Invalid selection")
-        elif robot_choice == "2":
-            print("Johnny details here")
-        elif robot_choice == "3":
-            exit_program()
-        elif robot_choice == "4":
-            print("Walle details here")
-        elif robot_choice == "5":
-            print("Johnny details here")
         else:
-            print("Invalid choice.")
+            print("Invalid selection.")
 
-def earth_menu():
+def spec_planet_menu():
     while True:
-        earth_details()
         print("")
 
         print("U: update this planet")
@@ -142,37 +133,36 @@ def earth_menu():
         print("")
 
         print("********************")
-        earth_choice = input("Type your selection> ")
+        planet_choice = input("Type your selection> ")
         print("********************")
 
-        if earth_choice == "U" or earth_choice == "u":
-            print("Update Earth")
-        elif earth_choice == "B" or earth_choice == "b":
+        if planet_choice == "U" or planet_choice == "u":
+            update_planet()
+        elif planet_choice == "B" or planet_choice == "b":
             planet_menu()
-        elif earth_choice == "E" or earth_choice == "e":
+        elif planet_choice == "E" or planet_choice == "e":
             exit_program()
         else:
             print("Invalid choice")
 
-def mars_menu():
+def spec_robot_menu():
     while True:
-        mars_details()
         print("")
 
-        print("U: update this planet")
+        print("U: update this robot")
         print("B: back to previous menu")
         print("E: exit the program")
         print("")
 
         print("********************")
-        mars_choice = input("Type your selection> ")
+        robot_choice = input("Type your selection> ")
         print("********************")
 
-        if mars_choice == "U" or mars_choice == "u":
-            print("Update Mars")
-        elif mars_choice == "B" or mars_choice == "b":
-            planet_menu()
-        elif mars_choice == "E" or mars_choice == "e":
+        if robot_choice == "U" or robot_choice == "u":
+            update_robot()
+        elif robot_choice == "B" or robot_choice == "b":
+            robot_menu()
+        elif robot_choice == "E" or robot_choice == "e":
             exit_program()
         else:
             print("Invalid choice")

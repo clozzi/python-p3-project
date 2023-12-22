@@ -6,12 +6,12 @@ from models.robot import Robot
 def exit_program():
     print("Goodbye!")
     exit()
+    
+def find_robot(id):
+    print(Robot.find_by_id(id))
 
-def earth_details():
-    print(Planet.find_by_name("Earth"))
-
-def mars_details():
-    print(Planet.find_by_name("Mars"))
+def find_planet(id):
+    print(Planet.find_by_id(id))
 
 def list_planets():
     planets = Planet.get_all()
@@ -66,7 +66,7 @@ def create_robot():
     planet_id = input("Enter the robot's planet id: ")
     try:
         robot = Robot.create(name, terrain, planet_id)
-        print(f"Success created robot: {robot}")
+        print(f"Successfully created robot: {robot}")
     except Exception as exc:
         print("Error creating robot: ", exc)
 
@@ -95,7 +95,7 @@ def update_robot():
             terrain = input("Enter the robot's new terrain: ")
             robot.terrain = terrain
             planet_id = input("Enter the robot's new planet id: ")
-            robot.planet_id = planet_id
+            robot.planet_id = int(planet_id)
             robot.update()
             print(f"Robot updated successfully: {robot}")
         except Exception as exc:

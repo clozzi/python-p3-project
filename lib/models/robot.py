@@ -49,7 +49,7 @@ class Robot:
         if type(planet_id) is int and Planet.find_by_id(planet_id):
             self._planet_id = planet_id
         else:
-            raise Exception("planet_id must reference a planet in the database")
+            raise ValueError("planet_id must reference a planet in the database")
         
     @classmethod
     def create_table(cls):
@@ -109,7 +109,7 @@ class Robot:
 
     @classmethod
     def create(cls, name, terrain, planet_id):
-        robot = cls(name, terrain, planet_id)
+        robot = cls(name, terrain, int(planet_id))
         robot.save()
         return robot
     
