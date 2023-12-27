@@ -95,17 +95,28 @@ Search functions for when the name of the planet or robot is known. If the eleme
 
 `lib/helpers.py`
 
-- All primary functions for database operations are contained in this file. It is the bridge between the CLI and the two classes which represent database models. The methods defined in this file range in function, here is a list of their functionality in order of appearance in the file:
+- All primary functions for database operations are contained in this file. It is the bridge between the CLI and the two classes which represent database models. The methods defined in this file range in function, here is a list of their functionality:
     - `exit_program`
         Says goodbye and exits the program
-    - `find_robot`
-        Takes in an id argument to find a specific robot from the database
-    - `find_planet`
-        Takes in an id argument to find a specific planet from the database
+    - `find_robot` && `find_planet`
+        Takes in an id argument to find a specific robot or planet from the database
+    - `list_planets` && `list_robots`
+        Retrieves and prints information about all planets or robots in the database
+    - `find_planet_by_name` && `find_robot_by_name`
+        Takes a name as input and finds the corresponding planet or robot and prints either the relevant information or an error 
+    - `find_planet_by_id` && `find_robot_by_id`
+        Takes an id as input and finds the corresponding planet or robot and prints either the relevant information or an error
+    - `create_planet` && `create_robot`
+        Takes user input to create a new planet or robot with appropriate attributes and prints either a confirmation message or an error 
+    - `update_planet` && `update_robot`
+        Takes user input to update information about a planet or robot in the database and prints either a success message or an error
+    - `delete_planet` and `delete_robot`
+        Takes user input to delete a planet or robot and prints a success message or an error
+    
 
 `lib/seed.py`
 
-- INSERT EXPLANATION HERE
+- Resets the space database via dropping and creating tables, then repopulates the database with two planets and five robots
 
 ---
 
