@@ -57,31 +57,31 @@ BREAKDOWN OF CLI SCRIPT
 
 #### *Models*
 
-- `lib/models/planet.py`
+`lib/models/planet.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
-- `lib/models/robot.py`
+`lib/models/robot.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
 #### *Database Manipulation*
 
-- `lib/cli.py`
+`lib/cli.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
-- `lib/debug.py`
+`lib/debug.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
-- `lib/helpers.py`
+`lib/helpers.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
-- `lib/seed.py`
+`lib/seed.py`
 
-INSERT EXPLANATION HERE
+- INSERT EXPLANATION HERE
 
 ---
 
