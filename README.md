@@ -9,7 +9,7 @@ This application utilizes Python and in-line SQL statements to seed a database w
 
 ## Sample Usage
 
-INSERT GIF HERE
+![Sample App Usage](/PythonCLIUsage.gif)
 
 ---
 
