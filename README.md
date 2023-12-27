@@ -1,7 +1,9 @@
-# Phase 3 CLI+ORM Project
+# Python CLI+ORM: Planetary Drones
 
 Interact with the space database to explore planets and the robots that inhabit them.
+- This project is for demonstrative purposes only and does not include actual data on drones/robots which inhabit planets in our solar system.
 
+This application utilizes Python and in-line SQL statements to seed a database with planets and the drones/robots that inhabit them. Once the database is filled, the command line interface allows the user to manipulate the contents of the database in a variety of ways. Create, update, delete, and explore data related to each of the planets and drones.
 
 ## Directory Structure:
 
@@ -38,7 +40,14 @@ python lib/cli.py
 ---
 
 
-## Generating Your CLI
+## File Descriptions
+
+`lib/models/planet.py`
+
+
+
+
+## Utilizing the CLI
 
 A CLI is, simply put, an interactive script and prompts the user and performs
 operations based on user input.
@@ -93,47 +102,6 @@ def exit_program():
 You can run the template CLI with `python lib/cli.py`, or include the shebang
 and make it executable with `chmod +x`. The template CLI will ask for input, do
 some work, and accomplish some sort of task.
-
-Past that, CLIs can be whatever you'd like, as long as you follow the project
-requirements.
-
-Of course, you will update `lib/cli.py` with prompts that are appropriate for
-your application, and you will update `lib/helpers.py` to replace `helper_1()`
-with a useful function based on the specific problem domain you decide to
-implement, along with adding other helper functions to the module.
-
-In the `lib/models` folder, you should rename `model_1.py` with the name of a
-data model class from your specific problem domain, and add other classes to the
-folder as needed. The file `lib/models/__init__.py` has been initialized to
-create the necessary database constants. You need to add import statements to
-the various data model classes in order to use the database constants.
-
-You are also welcome to implement a different module and directory structure.
-However, your project should be well organized, modular, and follow the design
-principal of separation of concerns, which means you should separate code
-related to:
-
-- User interface
-- Data persistence
-- Problem domain rules and logic
-
----
-
-
-### What Goes into a README?
-
-This README serves as a template. Replace the contents of this file to describe
-the important files in your project and describe what they do. Each Python file
-that you edit should get at least a paragraph, and each function should be
-described with a sentence or two.
-
-Describe your actual CLI script first, and with a good level of detail. The rest
-should be ordered by importance to the user. (Probably functions next, then
-models.)
-
-Screenshots and links to resources that you used throughout are also useful to
-users and collaborators, but a little more syntactically complicated. Only add
-these in if you're feeling comfortable with Markdown.
 
 ---
 
