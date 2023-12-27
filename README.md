@@ -49,7 +49,25 @@ python lib/cli.py
 
 ## CLI Interaction
 
-BREAKDOWN OF CLI SCRIPT
+#### *Main Menu*
+
+1. Exit the program
+2. List all Planets
+3. List all Robots
+4. Find Planet by name
+5. Find Robot by name
+
+#### Sub Menus 2 & 3
+
+List all Planets || List all Robots
+
+Both ALL submenus (selected with choices 2 or 3 at the main menu) provide lists of their namesakes found in the database, with options to see specific details, add elements to the database, delete elements from the database, or further navigate the cli.
+
+#### Sub Menus 4 & 5
+
+Find Planet by name || Find Robot by name
+
+Search functions for when the name of the planet or robot is known. If the element is found in the database, the CLI will display the appropriate element details.
 
 ---
 
