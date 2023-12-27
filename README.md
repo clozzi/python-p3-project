@@ -36,7 +36,7 @@ INSERT GIF HERE
 
 ## Generating The Environment
 
-Run the commands:
+Run the following commands:
 
 ```console
 pipenv install
@@ -65,7 +65,7 @@ INSERT EXPLANATION HERE
 
 INSERT EXPLANATION HERE
 
-    #### *Database Manipulation*
+#### *Database Manipulation*
 
 - `lib/cli.py`
 
