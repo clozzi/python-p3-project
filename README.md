@@ -1,9 +1,17 @@
 # Python CLI+ORM: Planetary Drones
 
 Interact with the space database to explore planets and the robots that inhabit them.
-- This project is for demonstrative purposes only and does not include actual data on drones/robots which inhabit planets in our solar system.
+- *This project is for demonstrative purposes only and does not include actual data on drones/robots which inhabit planets in our solar system.*
 
-This application utilizes Python and in-line SQL statements to seed a database with planets and the drones/robots that inhabit them. Once the database is filled, the command line interface allows the user to manipulate the contents of the database in a variety of ways. Create, update, delete, and explore data related to each of the planets and drones.
+This application utilizes Python and in-line SQL statements to seed a database with planets and the drones/robots that inhabit them. Once the database is populated, the command line interface allows the user to manipulate the contents of the database in a variety of ways. Create, update, delete, and explore data related to each of the planets and drones.
+
+---
+
+## Sample Usage
+
+INSERT GIF HERE
+
+---
 
 ## Directory Structure:
 
@@ -39,69 +47,41 @@ python lib/cli.py
 
 ---
 
+## CLI Interaction
+
+BREAKDOWN OF CLI SCRIPT
+
+---
 
 ## File Descriptions
 
-`lib/models/planet.py`
+#### *Models*
 
+- `lib/models/planet.py`
 
+INSERT EXPLANATION HERE
 
+- `lib/models/robot.py`
 
-## Utilizing the CLI
+INSERT EXPLANATION HERE
 
-A CLI is, simply put, an interactive script and prompts the user and performs
-operations based on user input.
+    #### *Database Manipulation*
 
-The project template has a sample CLI in `lib/cli.py` that looks like this:
+- `lib/cli.py`
 
-```py
-# lib/cli.py
+INSERT EXPLANATION HERE
 
-from helpers import (
-    exit_program,
-    helper_1
-)
+- `lib/debug.py`
 
+INSERT EXPLANATION HERE
 
-def main():
-    while True:
-        menu()
-        choice = input("> ")
-        if choice == "0":
-            exit_program()
-        elif choice == "1":
-            helper_1()
-        else:
-            print("Invalid choice")
+- `lib/helpers.py`
 
+INSERT EXPLANATION HERE
 
-def menu():
-    print("Please select an option:")
-    print("0. Exit the program")
-    print("1. Some useful function")
+- `lib/seed.py`
 
-
-if __name__ == "__main__":
-    main()
-```
-
-The helper functions are located in `lib/helpers.py`:
-
-```py
-# lib/helpers.py
-
-def helper_1():
-    print("Performing useful function#1.")
-
-
-def exit_program():
-    print("Goodbye!")
-    exit()
-```
-
-You can run the template CLI with `python lib/cli.py`, or include the shebang
-and make it executable with `chmod +x`. The template CLI will ask for input, do
-some work, and accomplish some sort of task.
+INSERT EXPLANATION HERE
 
 ---
 
