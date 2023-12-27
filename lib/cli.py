@@ -60,8 +60,28 @@ def planet_menu():
         print("********************")
 
         if planet_choice.isnumeric():
-            find_planet(planet_choice)
-            spec_planet_menu()
+            while True:
+                find_planet(planet_choice)
+                print("")
+
+                print("U: update this planet")
+                print("B: back to previous menu")
+                print("E: exit the program")
+                print("")
+
+                print("********************")
+                planet_choice = input("Type your selection> ")
+                print("********************")
+
+                if planet_choice == "U" or planet_choice == "u":
+                    update_planet()
+                elif planet_choice == "B" or planet_choice == "b":
+                    planet_menu()
+                elif planet_choice == "E" or planet_choice == "e":
+                    exit_program()
+                else:
+                    print("Invalid choice")
+
         elif planet_choice == "A" or planet_choice == "a":
             create_planet()
         elif planet_choice == "D" or planet_choice == "d":
@@ -71,7 +91,7 @@ def planet_menu():
         elif planet_choice == "E" or planet_choice == "e":
             exit_program()
         else:
-            print("Invalid choice.")
+            print("Invalid choice.")      
 
 def robot_menu():
     while True:
@@ -121,49 +141,6 @@ def robot_menu():
         else:
             print("Invalid selection.")
 
-def spec_planet_menu():
-    while True:
-        print("")
-
-        print("U: update this planet")
-        print("B: back to previous menu")
-        print("E: exit the program")
-        print("")
-
-        print("********************")
-        planet_choice = input("Type your selection> ")
-        print("********************")
-
-        if planet_choice == "U" or planet_choice == "u":
-            update_planet()
-        elif planet_choice == "B" or planet_choice == "b":
-            planet_menu()
-        elif planet_choice == "E" or planet_choice == "e":
-            exit_program()
-        else:
-            print("Invalid choice")
-
-def spec_robot_menu():
-    while True:
-        print("")
-
-        print("U: update this robot")
-        print("B: back to previous menu")
-        print("E: exit the program")
-        print("")
-
-        print("********************")
-        robot_choice = input("Type your selection> ")
-        print("********************")
-
-        if robot_choice == "U" or robot_choice == "u":
-            update_robot()
-        elif robot_choice == "B" or robot_choice == "b":
-            robot_menu()
-        elif robot_choice == "E" or robot_choice == "e":
-            exit_program()
-        else:
-            print("Invalid choice")
 
 if __name__ == "__main__":
     main()

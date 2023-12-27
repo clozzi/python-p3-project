@@ -83,19 +83,25 @@ Search functions for when the name of the planet or robot is known. If the eleme
 
 - Defines a reusable class Robot with name, terrain, and planet_id attributes. The robot class has methods for creating and dropping an SQL table and for saving, updating, and deleting a robot. Included in the robot class are also methods for retrieving specific instances of robots or all of the robots. The robot class is assocaited with the planet class via the planet_id attribute, and the property setter for this attribute checks that the provided planet_id exists in the planets table by utilizing a method imported from the Planet class.
 
-#### *Database Manipulation*
+#### *Database Interaction and Manipulation*
 
 `lib/cli.py`
 
-- INSERT EXPLANATION HERE
+- Creates an interactive command line interface for users utilizing three methods to define three menus separately for clarity and imported helper functions. The main method provides the user with the initial set of choices, while the planet_menu and robot_menu methods facilitate user interactions with the database (space.db) via the imported functions. The cli is looped so that users must exit the program manually.
 
 `lib/debug.py`
 
-- INSERT EXPLANATION HERE
+- Resets the space database via dropping and creating the relevant class tables and begins an ipdb session for code analysis.
 
 `lib/helpers.py`
 
-- INSERT EXPLANATION HERE
+- All primary functions for database operations are contained in this file. It is the bridge between the CLI and the two classes which represent database models. The methods defined in this file range in function, here is a list of their functionality in order of appearance in the file:
+    - `exit_program`
+        Says goodbye and exits the program
+    - `find_robot`
+        Takes in an id argument to find a specific robot from the database
+    - `find_planet`
+        Takes in an id argument to find a specific planet from the database
 
 `lib/seed.py`
 
