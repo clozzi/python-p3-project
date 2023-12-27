@@ -77,11 +77,11 @@ Search functions for when the name of the planet or robot is known. If the eleme
 
 `lib/models/planet.py`
 
-- INSERT EXPLANATION HERE
+- Defines a reusable class Planet with name and system attributes. The planet class has methods for creating and dropping an SQL table and for saving, updating, and deleting a planet. Included in the planet class are also methods for retrieving specific instances of planets or all of the planets.
 
 `lib/models/robot.py`
 
-- INSERT EXPLANATION HERE
+- Defines a reusable class Robot with name, terrain, and planet_id attributes. The robot class has methods for creating and dropping an SQL table and for saving, updating, and deleting a robot. Included in the robot class are also methods for retrieving specific instances of robots or all of the robots. The robot class is assocaited with the planet class via the planet_id attribute, and the property setter for this attribute checks that the provided planet_id exists in the planets table by utilizing a method imported from the Planet class.
 
 #### *Database Manipulation*
 
