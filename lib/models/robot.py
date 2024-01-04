@@ -12,11 +12,11 @@ class Robot:
         self.terrain = terrain
         self.planet_id = planet_id
 
-    def __repr__(self) -> str:
-        return (
-            f"Robot {self.id}: {self.name}, {self.terrain}, " +
-            f"Planet ID: {self.planet_id}"
-        )
+    # def __repr__(self):
+    #     return (
+    #         f"Robot {self.id}: {self.name}, {self.terrain}, " +
+    #         f"Planet ID: {self.planet_id}"
+    #     )
 
     @property
     def name(self):

@@ -60,6 +60,7 @@ def planet_menu():
         print("********************")
 
         if planet_choice.isnumeric():
+            planet_index = planet_choice
             while True:
                 find_planet(planet_choice)
                 print("")
@@ -70,14 +71,14 @@ def planet_menu():
                 print("")
 
                 print("********************")
-                planet_choice = input("Type your selection> ")
+                selected_planet = input("Type your selection> ")
                 print("********************")
 
-                if planet_choice == "U" or planet_choice == "u":
-                    update_planet()
-                elif planet_choice == "B" or planet_choice == "b":
+                if selected_planet == "U" or selected_planet == "u":
+                    update_planet(planet_index)
+                elif selected_planet == "B" or selected_planet == "b":
                     planet_menu()
-                elif planet_choice == "E" or planet_choice == "e":
+                elif selected_planet == "E" or selected_planet == "e":
                     exit_program()
                 else:
                     print("Invalid choice")
@@ -118,6 +119,7 @@ def robot_menu():
         elif robot_choice == "E" or robot_choice == "e":
             exit_program()
         elif robot_choice.isnumeric():
+            robot_index = robot_choice
             while True:
                 find_robot(robot_choice)
                 print("")
@@ -131,7 +133,7 @@ def robot_menu():
                 print("********************")
 
                 if selected_robot == "U" or selected_robot == "u":
-                    update_robot()
+                    update_robot(robot_index)
                 elif selected_robot == "B" or selected_robot == "b":
                     robot_menu()
                 elif selected_robot == "E" or selected_robot == "e":

@@ -10,8 +10,8 @@ class Planet:
         self.name = name
         self.system = system
 
-    def __repr__(self):
-        return f"Planet {self.id}: {self.name}, {self.system}"
+    # def __repr__(self):
+    #     return f"Planet {self.id}: {self.name}, {self.system}"
 
     @property
     def name(self):
