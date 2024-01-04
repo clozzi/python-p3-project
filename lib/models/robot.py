@@ -128,7 +128,6 @@ class Robot:
     
     @classmethod
     def get_all(cls):
-        """Return a list containing a Robot object per row in the table"""
         sql = """
             SELECT *
             FROM robots
