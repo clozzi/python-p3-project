@@ -22,7 +22,7 @@ class Planet:
         if isinstance(name, str):
             self._name = name
         else:
-            raise Exception("Planet name cannot be changed.")
+            raise Exception("Planet name must be a nonempty string.")
         
     @property
     def system(self):
