@@ -33,7 +33,7 @@ class Planet:
         if isinstance(system, str):
             self._system = system
         else:
-            raise Exception("System must be string.")
+            raise Exception("System must be a nonempty string.")
         
     @classmethod
     def create_table(cls):
@@ -108,7 +108,6 @@ class Planet:
     
     @classmethod
     def get_all(cls):
-        """Return a list containing a Planet object per row in the table"""
         sql = """
             SELECT *
             FROM planets
