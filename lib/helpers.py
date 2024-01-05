@@ -16,7 +16,7 @@ def exit_program():
 def find_robot(id):
     robot = Robot.find_by_id(id)
     planet = Planet.find_by_id(robot.planet_id)
-    print(f"Robot {robot.id}: {robot.name}, {robot.terrain}; Planet: {planet.name}") if robot else print(
+    print(f"Robot {robot.id}: {robot.name}, Terrain: {robot.terrain}, Planet: {planet.name}") if robot else print(
         f"Robot {id} not found in database\n"
     )
 
@@ -35,7 +35,7 @@ def list_robots():
     robots = Robot.get_all()
     for robot in robots:
         planet = Planet.find_by_id(robot.planet_id)
-        print(f"Robot {robot.id}: {robot.name}, {robot.terrain}; Planet: {planet.name}")
+        print(f"Robot {robot.id}: {robot.name}, Terrain: {robot.terrain}, Planet: {planet.name}")
 
 def find_planet_by_name():
     name = input("Enter the planet's name: ")
@@ -47,7 +47,8 @@ def find_planet_by_name():
 def find_robot_by_name():
     name = input("Enter the robot's name: ")
     robot = Robot.find_by_name(name)
-    print(f"Robot {robot.id}: {robot.name}, {robot.terrain}") if robot else print(
+    planet = Planet.find_by_id(robot.planet_id)
+    print(f"Robot {robot.id}: {robot.name}, Terrain: {robot.terrain}, Planet: {planet.name}") if robot else print(
         f"Robot {name} not found in database\n"
     )
 
@@ -61,13 +62,24 @@ def find_planet_by_id():
 def find_robot_by_id():
     id_ = input("Enter the robot's id: ")
     robot = Robot.find_by_id(id_)
-    print(f"Robot {robot.id}: {robot.name}, {robot.terrain}") if robot else print(
+    planet = Planet.find_by_id(robot.planet_id)
+    print(f"Robot {robot.id}: {robot.name}, Terrain: {robot.terrain}, Planet: {planet.name}") if robot else print(
         f"Robot {id_} not found in database\n"
     )
 
 def create_planet():
-    name = input("Enter the planet's name: ")
-    system = input("Enter the planet's system: ")
+    while True:
+        name = input("Enter the planet's name: ")
+        if isinstance(name, str) and len(name) and not name.isnumeric():
+            break
+        else:
+            print("Name must be nonempty string")
+    while True:
+        system = input("Enter the planet's system: ")
+        if isinstance(system, str) and len(system) and not system.isnumeric():
+            break
+        else:
+            print("System must be nonempty string")
     try:
         planet = Planet.create(name, system)
         print(f"Successfully created planet: {planet.name} in {planet.system}")
@@ -75,12 +87,26 @@ def create_planet():
         print("Error creating planet: ", exc)
 
 def create_robot():
-    name = input("Enter the robot's name: ")
-    terrain = input("Enter the robot's explorable terrain: ")
-    # planet_id = input("Enter the robot's planet id: ")
-    planet_name = input("Enter the robot's planet name: ")
-    planet = Planet.find_by_name(planet_name)
-    planet_id = planet.id
+    while True:
+        name = input("Enter the robot's name: ")
+        if isinstance(name, str) and len(name) and not name.isnumeric():
+            break
+        else:
+            print("Name must be a nonempty string")
+    while True:
+        terrain = input("Enter the robot's explorable terrain: ")
+        if terrain == "aerial" or terrain == "terrestrial":
+            break
+        else:
+            print("Robots can only explore the land or the sky! (terrestrial or aerial)")
+    while True:
+        planet_name = input("Enter the robot's planet name: ")
+        planet = Planet.find_by_name(planet_name)
+        if planet:
+            planet_id = planet.id
+            break
+        else:
+            print("Planet is not yet registered with NASA")
     try:
         robot = Robot.create(name, terrain, planet_id)
         print(f"Successfully created robot: {robot.name} exploring {robot.terrain} features")
@@ -89,32 +115,55 @@ def create_robot():
 
 def update_planet(planet_index):
     if planet := Planet.find_by_id(planet_index):
-        try:
+        # try:
+        while True:
             name = input("Enter the planet's new name: ")
-            planet.name = name
+            if isinstance(name, str) and len(name) and not name.isnumeric():
+                break
+            else:
+                print("Planet name must be a nonempty string")
+        while True:
             system = input("Enter the planet's new location: ")
-            planet.system = system
-
-            planet.update()
-            print(f'Successfully updated planet: {planet.name} in {planet.system}')
-        except Exception as exc:
-            print("Error updating planet: ", exc)
+            if isinstance(system, str) and len(system) and not system.isnumeric():
+                break
+            else:
+                print("System name must be a nonempty string")
+            
+        planet.name = name    
+        planet.system = system
+        planet.update()
+        print(f'Successfully updated planet: {planet.name} in {planet.system}')
     else:
         print(f"Planet {planet} not found in database\n")
 
 def update_robot(robot_index):
     if robot := Robot.find_by_id(robot_index):
-        try:
+        while True:
             name = input("Enter the robot's new name: ")
-            robot.name = name
+            if isinstance(name, str) and len(name) and not name.isnumeric():
+                break
+            else:
+                print("Name must be nonempty string")
+        while True:
             terrain = input("Enter the robot's new terrain: ")
-            robot.terrain = terrain
-            planet_id = input("Enter the robot's new planet id: ")
-            robot.planet_id = int(planet_id)
-            robot.update()
-            print(f"Robot updated successfully: {robot.name}")
-        except Exception as exc:
-            print(f"Error updating robot: ", exc)
+            if isinstance(terrain, str) and terrain == "terrestrial" or terrain == "aerial":
+                break
+            else:
+                print("Robots can only explore the land or the sky! (terrestrial or aerial)")
+        while True:
+            planet_name = input("Enter the robot's planet name: ")
+            planet = Planet.find_by_name(planet_name)
+            if planet:
+                planet_id = planet.id
+                break
+            else:
+                print("Planet is not yet registered with NASA")
+
+        robot.name = name
+        robot.terrain = terrain
+        robot.planet_id = planet_id
+        robot.update()
+        print(f"Robot updated successfully: {robot.name}")
     else:
         print(f"Robot {robot} not found in database\n")
 
