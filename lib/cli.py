@@ -13,7 +13,8 @@ from helpers import (
     update_planet,
     update_robot,
     find_robot,
-    find_planet
+    find_planet,
+    display_planets_robots
 )
 
 def main():
@@ -63,6 +64,7 @@ def planet_menu():
             planet_index = planet_choice
             while True:
                 find_planet(planet_choice)
+                display_planets_robots(planet_choice)
                 print("")
 
                 print("U: update this planet")

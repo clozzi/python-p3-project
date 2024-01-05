@@ -158,3 +158,15 @@ class Robot:
 
         row = CURSOR.execute(sql, (name,)).fetchone()
         return cls.instance_from_db(row) if row else None
+    
+    @classmethod
+    def find_robots_by_planet(cls, id):
+        sql = """
+            SELECT *
+            FROM robots
+            WHERE planet_id = ?
+        """
+
+        rows = CURSOR.execute(sql, (id, )).fetchall()
+
+        return [cls.instance_from_db(row) for row in rows]
