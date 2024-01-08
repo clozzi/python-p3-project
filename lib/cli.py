@@ -67,6 +67,7 @@ def planet_menu():
                 display_planets_robots(planet_choice)
                 print("")
 
+                print("#: type robot # to see details")
                 print("U: update this planet")
                 print("B: back to previous menu")
                 print("E: exit the program")
@@ -82,6 +83,28 @@ def planet_menu():
                     planet_menu()
                 elif selected_planet == "E" or selected_planet == "e":
                     exit_program()
+                elif selected_planet.isnumeric():
+                    robot_index = selected_planet
+                    while True:
+                        find_robot(robot_index)
+                        print("")
+
+                        print("U: update robot details")
+                        print("B: back to previous menu")
+                        print("E: exit the program")
+
+                        print("********************")
+                        selected_robot = input("Type your selection> ")
+                        print("********************")
+
+                        if selected_robot == "U" or selected_robot == "u":
+                            update_robot(robot_index)
+                        elif selected_robot == "B" or selected_robot == "b":
+                            planet_menu()
+                        elif selected_robot == "E" or selected_robot == "e":
+                            exit_program()
+                        else:
+                            print("Invalid selection")
                 else:
                     print("Invalid choice")
 
@@ -123,7 +146,7 @@ def robot_menu():
         elif robot_choice.isnumeric():
             robot_index = robot_choice
             while True:
-                find_robot(robot_choice)
+                find_robot(robot_index)
                 print("")
 
                 print("U: update robot details")

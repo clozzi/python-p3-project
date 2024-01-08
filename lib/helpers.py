@@ -5,9 +5,11 @@ from models.robot import Robot
 
 def display_planets_robots(id):
     robots = Robot.find_robots_by_planet(id)
+    count = 1
     print("\nCurrent Robots:")
     for robot in robots:
-        print(f"{robot.name}: {robot.terrain}")
+        print(f"{count}: {robot.name} is exploring {robot.terrain} regions.")
+        count += 1
 
 def exit_program():
     print("Goodbye!")
