@@ -68,6 +68,8 @@ def planet_menu():
                 print("")
 
                 print("#: type robot # to see details")
+                print("A: add a robot")
+                print("D: delete a robot")
                 print("U: update this planet")
                 print("B: back to previous menu")
                 print("E: exit the program")
@@ -81,6 +83,10 @@ def planet_menu():
                     update_planet(planet_index)
                 elif selected_planet == "B" or selected_planet == "b":
                     planet_menu()
+                elif selected_planet == "A" or selected_planet == "a":
+                    create_robot()
+                elif selected_planet == "D" or selected_planet == "d":
+                    delete_robot()
                 elif selected_planet == "E" or selected_planet == "e":
                     exit_program()
                 elif selected_planet.isnumeric():
