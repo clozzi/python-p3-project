@@ -42,7 +42,13 @@ def list_robots():
 def find_planet_by_name():
     name = input("Enter the planet's name: ")
     planet = Planet.find_by_name(name)
-    print(f"Planet {planet.id}: {planet.name}, {planet.system}") if planet else print(
+    robots = Robot.find_robots_by_planet(planet.id)
+    if planet:
+        print(f"Planet {planet.id}: {planet.name}, {planet.system}\n")
+        for robot in robots:
+            print(f"{robot.name} exploring {robot.terrain}")
+    else:
+        print(
         f"Planet {name} not found in database\n"
     )
 
