@@ -1,4 +1,4 @@
-# lib/models/employee.py
+# lib/models/robot.py
 from models.__init__ import CURSOR, CONN
 from models.planet import Planet
 
